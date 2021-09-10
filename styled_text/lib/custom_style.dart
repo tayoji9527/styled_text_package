@@ -12,6 +12,8 @@ class CustomStyle with Diagnosticable implements TextStyle {
   CustomStyle({this.baseStyle});
 
   TextStyle get style => baseStyle ?? const TextStyle();
+  @override
+  TextOverflow? get overflow => this.overflow;
 
   @override
   TextStyle apply(
@@ -38,7 +40,8 @@ class CustomStyle with Diagnosticable implements TextStyle {
       ui.TextLeadingDistribution? leadingDistribution,
       Locale? locale,
       List<Shadow>? shadows,
-      List<ui.FontFeature>? fontFeatures}) {
+      List<ui.FontFeature>? fontFeatures,
+      TextOverflow? overflow}) {
     return style.apply(
       color: color,
       backgroundColor: backgroundColor,
@@ -64,6 +67,7 @@ class CustomStyle with Diagnosticable implements TextStyle {
       locale: locale,
       shadows: shadows,
       fontFeatures: fontFeatures,
+      overflow: overflow,
     );
   }
 
@@ -105,32 +109,33 @@ class CustomStyle with Diagnosticable implements TextStyle {
       Color? decorationColor,
       TextDecorationStyle? decorationStyle,
       double? decorationThickness,
-      String? debugLabel}) {
+      String? debugLabel,
+      TextOverflow? overflow}) {
     return style.copyWith(
-      inherit: inherit,
-      color: color,
-      backgroundColor: backgroundColor,
-      fontFamily: fontFamily,
-      fontFamilyFallback: fontFamilyFallback,
-      fontSize: fontSize,
-      fontWeight: fontWeight,
-      fontStyle: fontStyle,
-      letterSpacing: letterSpacing,
-      wordSpacing: wordSpacing,
-      textBaseline: textBaseline,
-      height: height,
-      leadingDistribution: leadingDistribution,
-      locale: locale,
-      foreground: foreground,
-      background: background,
-      shadows: shadows,
-      fontFeatures: fontFeatures,
-      decoration: decoration,
-      decorationColor: decorationColor,
-      decorationStyle: decorationStyle,
-      decorationThickness: decorationThickness,
-      debugLabel: debugLabel,
-    );
+        inherit: inherit,
+        color: color,
+        backgroundColor: backgroundColor,
+        fontFamily: fontFamily,
+        fontFamilyFallback: fontFamilyFallback,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        letterSpacing: letterSpacing,
+        wordSpacing: wordSpacing,
+        textBaseline: textBaseline,
+        height: height,
+        leadingDistribution: leadingDistribution,
+        locale: locale,
+        foreground: foreground,
+        background: background,
+        shadows: shadows,
+        fontFeatures: fontFeatures,
+        decoration: decoration,
+        decorationColor: decorationColor,
+        decorationStyle: decorationStyle,
+        decorationThickness: decorationThickness,
+        debugLabel: debugLabel,
+        overflow: overflow);
   }
 
   @override
